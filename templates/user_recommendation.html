@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Movie Recommendation</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.css')}}">
+
+    <!-- --------- Owl-Carousel ------------------->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css')}}">
+
+    <!-- ------------ AOS Library ------------------------- -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css')}}">
+
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recommend.css')}}">
+
+</head>
+
+<body>
+    <!----------------------------- Main Site Section ------------------------------>
+
+    <main>
+
+        <!-- --------------------- Blog Carousel ----------------- -->
+
+        <section>
+            <div class="blog">
+                <div class="container">
+                    <h2> User Based Recommendation </h2>
+                    <div class="owl-carousel owl-theme blog-post">
+                        {% for poster, movieInfo in UserCollaborativeCards.items() if not UserCollaborativeCards.hidden %}
+                        <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                            <img src={{poster}} alt="Image is Not Available" />
+                            <div class="blog-title">
+                                <h2> {{movieInfo[0]}} </h2>
+
+                                {% for genre in movieInfo[1] %}
+                                <button class="btn btn-blog">{{genre}}</button>
+                                {% endfor %}
+
+                                <span>{{ movieInfo[2] }}</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+
+                </div>
+                <div class="owl-navigation">
+                    <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
+                    <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ----------x---------- Blog Carousel --------x-------- -->
+
+
+    </main>
+
+    <!---------------x------------- Main Site Section ---------------x-------------->
+
+    <!-- Jquery Library file -->
+    <script src="{{ url_for('static', filename='js/Jquery3.4.1.min.js')}}"></script>
+
+    <!-- --------- Owl-Carousel js ------------------->
+    <script src="{{ url_for('static', filename='js/owl.carousel.min.js')}}"></script>
+
+    <!-- ------------ AOS js Library  ------------------------- -->
+    <script src="{{ url_for('static', filename='js/aos.js')}}"></script>
+
+    <!-- Custom Javascript file -->
+    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+</body>
+
+</html>

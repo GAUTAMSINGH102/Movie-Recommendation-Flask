@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Movie Recommendation</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.css')}}">
+
+    <!-- --------- Owl-Carousel ------------------->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css')}}">
+
+    <!-- ------------ AOS Library ------------------------- -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aos.css')}}">
+
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recommend.css')}}">
+
+</head>
+
+<body>
+    <!----------------------------- Main Site Section ------------------------------>
+
+    <main>
+        <!------------------------ Site Title ---------------------->
+
+        <section class="site-title">
+
+            <!-- <video autoplay loop muted plays-inline class="back-video">
+                <source src="../static/freeguy.mp4" type="video/mp4">
+            </video> -->
+            <!-- <iframe width="853" height="480" src="https://www.youtube.com/embed/X2m-08cOAbc" title="Free Guy | Official Trailer | 20th Century Studios" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+            <iframe class="back-video" frameborder="0"
+                src="https://www.youtube.com/embed/{{keyvalue}}?playlist={{keyvalue}}&loop=1&rel=0controls=0&autoplay=1&mute=1&showinfo=0">
+            </iframe>
+
+            <div class="site-background" data-aos="fade-up" data-aos-delay="100">
+                <h3>Movie Trailer</h3>
+                <h1>{{ movie }}</h1>
+                <button class="btn">Explore</button>
+            </div>
+        </section>
+
+        <!------------x----------- Site Title ----------x----------->
+
+        <!-- --------------------- Movie Info ----------------- -->
+
+        <section class="container">
+            <div class="heading-movie">
+                <h1> {{ movie }} </h1>
+            </div>
+            <div class="site-content">
+                <div class="posts">
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <img src={{img_path}} class="img" alt="Movie" />
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-clock text-gray"></i>&nbsp;&nbsp;{{runtime}}</span>
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{release_date}}</span>
+                                <span><i class="fas fa-star text-gray"></i>&nbsp;&nbsp;{{result.vote_average}}/10</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <h2> {{ movie }} </h2>
+                            <p>
+                                {{result.overview}}
+                            </p>
+                            <button class="btn post-btn">
+                                Read More &nbsp; <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <div class="category">
+                        <h2>Genres</h2>
+                        <ul class="category-list">
+                            {% for genre in genres %}
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="100">
+                                <a href="#">{{genre}}</a>
+                                <!-- <span>(05)</span> -->
+                            </li>
+                            <!-- <li class="list-items" data-aos="fade-left" data-aos-delay="200">
+                                <a href="#">Thriller</a>
+                                <span>(02)</span>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="300">
+                                <a href="#">Action</a>
+                                <span>(07)</span>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="400">
+                                <a href="#">Suspense</a>
+                                <span>(01)</span>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="500">
+                                <a href="#">Comedy</a>
+                                <span>(08)</span>
+                            </li> -->
+                            {%endfor%}
+                        </ul>
+                    </div>
+                    <!-- <div class="cast"> -->
+                    <div class="cast">
+                        <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+                            <h2>Cast</h2>
+                            <div class="flex-row">
+                                {% for profile, name in cast.items() %}
+                                <div>
+                                    <img style="border-radius: 40px;" height="180" width="110" src={{ profile }}
+                                        alt="Actors" />
+                                    <h5> {{ name }} </h5>
+                                </div>
+                                {% endfor %}
+                                <!-- <div>
+                                        <img style="border-radius: 40px;" height="180" width="110" src="../static/jodie.jpg" alt="insta2" />
+                                        <h3>Jodie Comer</h3>
+                                    </div>
+                                    <div>
+                                        <img style="border-radius: 40px;" height="180" width="110" src="../static/keys.jpg" alt="insta3" />
+                                        <h3>Joe Kerry</h3>
+                                    </div> -->
+
+                                <!-- <img style="border-radius: 40px;" height="200" width="140" src="./assets/Blog-post/antman.png" alt="insta3" /> -->
+                            </div>
+                            <!-- <div class="flex-row">
+                                    <img src="./assets/instagram/thumb-card6.png" alt="insta4" />
+                                    <img src="./assets/instagram/thumb-card7.png" alt="insta5" />
+                                    <img src="./assets/instagram/thumb-card8.png" alt="insta6" />
+                                </div> -->
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </aside>
+            </div>
+        </section>
+
+        <!------------x----------- Movie Info ----------x----------->
+
+        <!-- --------------------- Blog Carousel ----------------- -->
+
+        <section>
+            <div class="blog">
+                <div class="container">
+                    <!-- <div class="heading-Recommendation">
+                        <h1>Recommendation</h1>
+                    </div> -->
+
+                    <h2> Content Based Recommendation </h2>
+                    <div class="owl-carousel owl-theme blog-post">
+                        {% for poster, movieInfo in cards.items() if not cards.hidden %}
+                        <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                            <img src={{poster}} alt="Image is Not Available" />
+                            <div class="blog-title">
+                                <h2> {{movieInfo[0]}} </h2>
+
+                                {% for genre in movieInfo[1] %}
+                                <button class="btn btn-blog">{{genre}}</button>
+                                {% endfor %}
+                                <!-- <button class="btn btn-blog">Action</button>
+                                <button class="btn btn-blog">Comedy</button> -->
+                                <span>{{ movieInfo[2] }}</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- <div class="owl-navigation">
+                    <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
+                    <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
+                </div> -->
+            </div>
+        </section>
+
+        <section>
+            <div class="blog">
+                <div class="container">
+                    <h2> Collaborative Based Recommendation </h2>
+                    <div class="owl-carousel owl-theme blog-post">
+                        {% for poster, movieInfo in CollaborativeCards.items() if not CollaborativeCards.hidden %}
+                        <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                            <img src={{poster}} alt="Image is Not Available" />
+                            <div class="blog-title">
+                                <h2> {{movieInfo[0]}} </h2>
+
+                                {% for genre in movieInfo[1] %}
+                                <button class="btn btn-blog">{{genre}}</button>
+                                {% endfor %}
+
+                                <span>{{ movieInfo[2] }}</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+
+                </div>
+                <div class="owl-navigation">
+                    <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
+                    <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ----------x---------- Blog Carousel --------x-------- -->
+
+
+    </main>
+
+    <!---------------x------------- Main Site Section ---------------x-------------->
+
+    <!-- Jquery Library file -->
+    <script src="{{ url_for('static', filename='js/Jquery3.4.1.min.js')}}"></script>
+
+    <!-- --------- Owl-Carousel js ------------------->
+    <script src="{{ url_for('static', filename='js/owl.carousel.min.js')}}"></script>
+
+    <!-- ------------ AOS js Library  ------------------------- -->
+    <script src="{{ url_for('static', filename='js/aos.js')}}"></script>
+
+    <!-- Custom Javascript file -->
+    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+</body>
+
+</html>

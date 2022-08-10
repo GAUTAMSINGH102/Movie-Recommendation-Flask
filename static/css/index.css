@@ -1,0 +1,295 @@
+
+@import url('./fonts.css');
+
+
+html, body{
+    margin: 0%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+:root{
+
+    /*      Theme colors        */
+    --text-gray: #3f4954;
+    --text-light : #686666da;
+    --bg-color: #0f0f0f;
+    --white: #ffffff;
+    --midnight: #104f55;
+
+    /* gradient color   */
+    --sky: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+
+    /*      theme font-family   */
+    --Abel: 'Abel', cursive;
+    --Anton: 'Anton', cursive;
+    --Josefin : 'Josefin', cursive;
+    --Lexend: 'Lexend', cursive;
+    --Livvic : 'Livvic', cursive;
+}
+
+
+/* ---------------- Global Classes ---------------*/
+
+a{
+    text-decoration: none;
+    color: var(--text-gray);
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;    
+    flex-wrap: wrap;
+}
+
+ul{
+    list-style-type: none;
+}
+
+h1{
+    font-family: var(--Lexend);
+    font-size: 2.5rem;
+}
+
+h2{
+    font-family: var(--Lexend);
+}
+
+h3{
+    font-family: var(--Abel);
+    font-size: 1.3rem;
+}
+
+button.btn{
+    border: none;
+    border-radius: 2rem;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    font-family: var(--Livvic);
+    cursor: pointer;
+}
+
+span{
+    font-family: var(--Abel);
+}
+
+.container{
+    margin: 0 5vw;
+}
+
+.text-gray{
+    color: var(--text-gray);
+}
+
+p{
+    font-family: var(--Lexend);
+    color: var(--text-light);
+}
+
+/* ------x------- Global Classes -------x-------*/
+
+/* --------------- navbar ----------------- */
+
+.nav{
+    background: url('../moviesbackground.jpg');
+    padding: 0 2rem;
+    height: 0rem;
+    min-height: 10vh;
+    transition: height 1s ease-in-out;
+}
+
+.nav .nav-menu{    
+    justify-content: space-between;
+}
+
+.nav .nav-items{
+    display: flex;
+    margin: 0;
+}
+
+.nav .nav-items .nav-link{
+    padding: 1.6rem 1rem;
+    font-size: 1.1rem;
+    position: relative;
+    font-family: var(--Livvic);
+    font-size: 1.1rem;
+}
+
+.nav .nav-items .nav-link a{
+    color: yellow;
+    font-weight: bold;
+}
+
+.nav .nav-items .nav-link:hover a{
+    color: var(--white);
+
+}
+
+/* -------x------- navbar ---------x------- */
+
+/* --------------- Site title ---------------- */
+main .site-title{
+    background: url('../moviesbackground.jpg');
+    background-size: cover;
+    position: relative;
+    height: 137vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main .site-title .site-background{
+    /* position: absolute;
+    top: 0; */
+    /* padding-top: 10rem; */
+    text-align: center;
+    /* align-items: center;
+    justify-content: center; */
+    color: rgb(251, 255, 0);
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+main .site-title h1, h3{
+    margin: .3rem;
+}
+
+main .site-title .btn{
+    margin: 1.8rem;
+    background: yellow;
+}
+
+main .site-title .btn:hover{
+    background: var(--bg-color);
+    border: 1px solid var(--white);
+    color: var(--white);
+}
+
+.search-bar{
+    width: 100%;
+    max-width: 700px;
+    background-color: rgba(205, 205, 182, 0.612);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+    backdrop-filter: blur(4px) saturate(180%);
+    margin-top: 50px;
+    margin-left: 330px;
+}
+
+.search-bar input{
+    background: transparent;
+    flex: 1px;
+    border: 0;
+    outline: none;
+    padding: 24px 20px;
+    font-size: 20px;
+    font-family: var(--Livvic);
+    font-weight: bold;
+    color: var(--bg-color);
+}
+
+::placeholder{
+    color: var(--bg-color);
+    font-family: var(--Livvic);
+}
+
+.search-bar button{
+    border: 0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background: yellow;
+    font-family: var(--Livvic);
+    font-weight: bold;
+    color: var(--bg-color);
+    cursor: pointer;
+}
+
+/* --------x------ Site title --------x------- */
+
+/* --------------- Blog Carousel ------------ */
+
+main .blog{
+    /* background: url('../assets/Abract01.png'); */
+    /* background-repeat: no-repeat;
+    background-position: right; */
+    /* height: 100vh; */
+    width: 100%;
+}
+
+main .heading-Recommendation{
+    text-align: center;
+    color: yellow;
+}
+
+main .blog .blog-post{
+    padding-top: 0rem;
+}
+
+main .blog-post .blog-content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 90%;
+    /* height: 500px; */
+    margin: 3rem 1.5rem;
+    box-shadow: 0 15px 20px rgba(255, 231, 231, 0.582);
+    background-color: #ffffff;
+}
+
+/* main .blog-post .blog-content img{
+    height: 240px;
+} */
+
+main .blog-content .blog-title{
+    padding: 1rem 0rem 2rem 0rem;
+}
+
+main .blog-content .btn-blog{
+    padding: .7rem 2rem;
+    background: yellow;
+    font-weight: bold;
+    margin: 0.5rem 0rem 0rem 0rem;
+}
+
+main .blog-content span{
+    display: block;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.container .owl-nav .owl-prev .owl-nav-prev{
+    position: absolute;
+    top: 30%;
+    left: -3.5%;
+    margin: 0 auto;
+}
+
+.container .owl-nav .owl-next .owl-nav-next{
+    position: absolute;
+    top: 30%;
+    right: -3.50%;
+    margin: 0 auto;
+}
+
+.owl-nav .owl-prev .owl-nav-prev,
+.owl-nav .owl-next .owl-nav-next{
+    color: yellow;
+    background: var(--bg-color);
+    border-radius: 60px;
+    font-size: 2rem;
+}
+
+.owl-theme .owl-nav [class*='owl-']:hover{
+    background: yellow;
+    color: var(--bg-color);
+}
+
+.owl-theme .owl-nav [class*='owl-']{
+    outline: none;
+}
+
+
+/* -------x------- Blog Carousel -----x------ */
