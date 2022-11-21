@@ -11,6 +11,9 @@ Recommendation Based on :
 ### **Home Page**
 ![Home Page](https://github.com/GAUTAMSINGH102/Movie-Recommendation-Flask/blob/main/WebsiteImages/Home.jpeg)
 
+### **Movie Trailer**
+![Home Page](https://github.com/GAUTAMSINGH102/Movie-Recommendation-Flask/blob/main/WebsiteImages/MovieTrailer.gif)
+
 ### **Movie Info**
 ![Movie Info](https://github.com/GAUTAMSINGH102/Movie-Recommendation-Flask/blob/main/WebsiteImages/MovieInfo.png)
 
